@@ -23,4 +23,10 @@ match lst with
 
 (* Given source code returns a token list. *)
 let rec lexer (input : string) : token list =
-  failwith "unimplemented"
+  let length = String.length input in  (* find the length of input *)
+
+  let rec helper pos = 
+    if pos >= length then
+      [Tok_EOF]
+    else if Str.string_match (Str.regexp "(") input pos then
+      
